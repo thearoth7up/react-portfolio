@@ -10,7 +10,7 @@ export const HeroSection = () => {
         <div className="space-y-6">
             <img
               className="w-50 h-50 md:w-60 md:h-60 mx-auto rounded-full opacity-0 animate-fade-in"
-              src="src/assets/profile/photo.png"
+              src="public/profile/photo.png"
               alt=""
             />
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
