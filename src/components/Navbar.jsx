@@ -68,8 +68,9 @@ export const Navbar = () => {
             "transition-all duration-300 md:hidden ",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
           )}
+          style={{ paddingTop: "30rem", paddingBottom: "30rem" }}
         >
           <div className="flex flex-col space-y-8 text-xl">
             {navItems.map((item, key) => (

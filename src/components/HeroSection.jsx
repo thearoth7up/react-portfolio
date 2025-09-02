@@ -4,30 +4,36 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="relative min-h-screen flex flex-col justify-center px-4"
     >
-      <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-6">
-            <img
-              className="w-50 h-50 md:w-60 md:h-60 mx-auto rounded-full opacity-0 animate-fade-in"
-              src="public/profile/photo.png"
-              alt=""
-            />
+      <div className="container max-w-5xl mx-auto z-10 flex flex-col md:flex-row items-center md:items-start">
+        {/* Profile image on the left */}
+        <div className=" flex-shrink-0 mb-8 md:mb-0 md:mr-12 flex justify-center w-full md:w-auto">
+          <img
+            className=" w-50 h-50 md:w-80 md:h-80 rounded-full opacity-0 animate-fade-in"
+            src="public/profile/photo.png"
+            alt=""
+          />
+        </div>
+        {/* Text content on the right */}
+        <div className="flex-1 text-center md:text-left space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="opacity-0 animate-fade-in "> Hi, I'm </span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" "}
               Thearoth{" "}
             </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
+            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2 ">
               {" "}
               Web Developer{" "}
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I'm a passionate web developer with a knack for creating dynamic and
-            responsive web applications. Let's build something great together!
+            I'm a Information Technology Engineering{" "}
+            <span className="text-primary font-bold">" ITE "</span> student at{" "}
+            <span className="text-primary font-bold">RUPP.</span> Let's build
+            something great together!
           </p>
           <div className="pt-4 opacity-0 animate-fade-in-delay-4 ">
             <a href="#projects" className="cosmic-button">

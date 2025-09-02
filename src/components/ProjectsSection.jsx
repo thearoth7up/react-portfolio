@@ -7,8 +7,8 @@ const projects = [
     description: "A web application for buying technology products.",
     image: "public/projects/project2.png",
     tags: ["React", "TailwindCSS", "JavaScript"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: "https://github.com/danadorn/tech-seven",
+    githubUrl: "https://github.com/danadorn/tech-seven",
   },
   {
     id: 2,
@@ -17,8 +17,10 @@ const projects = [
       "A web application for buying and selling books. It is a platform that connects readers and sellers.",
     image: "public/projects/project1.png",
     tags: ["UX/UI"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl:
+      "https://www.figma.com/proto/9nvkRwjkiqE0xZNzVc8pTJ/Book-Haven?node-id=163-1274&t=VLptzCFUj9hDP3e0-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=19%3A139",
+    githubUrl:
+      "https://github.com/thearoth7up",
   },
 ];
 
@@ -92,7 +94,7 @@ export const ProjectsSection = () => {
 
         <div className="text-center mt-12">
           <a
-            href="https://github.com/kunthearoth007-maker"
+            href="https://github.com/thearoth7up"
             className="cosmic-button w-fit flex items-center mx-auto gap-2 "
             target="_blank"
           >

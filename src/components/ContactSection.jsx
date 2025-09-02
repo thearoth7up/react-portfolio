@@ -14,23 +14,71 @@ import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
+import emailjs from "@emailjs/browser";
+
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSumbit = (e) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    submitting: false,
+    success: false,
+    error: false,
+    message: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSumbit = async (e) => {
     e.preventDefault();
 
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description:
-          "Your message has been sent successfully. I'll get back to you soon.",
+    setFormStatus({
+      submitting: false,
+      success: false,
+      error: false,
+      message: "",
+    });
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        }
+      );
+      setFormStatus({
+        submitting: false,
+        success: true,
+        error: false,
+        message: "Your message has been sent successfully!",
       });
-      setIsSubmitting(false);
-    }, 1500);
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setFormStatus({
+        submitting: false,
+        success: false,
+        error: true,
+        message: "Something went wrong. Please try again later.",
+      });
+    }
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -147,6 +195,7 @@ export const ContactSection = () => {
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Oum Kunthearoth"
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
@@ -164,6 +213,7 @@ export const ContactSection = () => {
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Oum.Kunthearoth@example.com"
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
@@ -180,19 +230,29 @@ export const ContactSection = () => {
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I would like to..."
+                  onChange={handleInputChange}
                 />
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={formStatus.submitting}
                 className={cn(
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {formStatus.submitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
+              {formStatus.message && (
+                <div
+                  className={`form-status ${
+                    formStatus.success ? "text-green-500 border bg-green-500/10 ring-1 ring-green-500/20 rounded-sm px-4 py-2" : "text-red-500 border bg-red-500/10 ring-1 ring-red-500/20 rounded-sm px-4 py-2"
+                  }`}
+                >
+                  {formStatus.message}
+                </div>
+              )}
             </form>
           </div>
         </div>
