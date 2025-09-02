@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Home } from "./pages/Home"
-import { NotFound } from "./pages/NotFound"
-import { Toaster } from "./components/ui/toaster"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
+import { Toaster } from "./components/ui/toaster";
 import emailjs from "@emailjs/browser";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-    <Toaster />
+      <Toaster />
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
@@ -17,6 +17,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
-export default App
+export default App;
