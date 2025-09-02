@@ -5,7 +5,7 @@ const projects = [
     id: 1,
     title: "TECH - SEVEN",
     description: "A web application for buying technology products.",
-    image: "public/projects/project2.png",
+    image: "/projects/project2.png",
     tags: ["React", "TailwindCSS", "JavaScript"],
     demoUrl: "https://github.com/danadorn/tech-seven",
     githubUrl: "https://github.com/danadorn/tech-seven",
@@ -15,7 +15,7 @@ const projects = [
     title: "BOOK - HAVEN",
     description:
       "A web application for buying and selling books. It is a platform that connects readers and sellers.",
-    image: "public/projects/project1.png",
+    image: "/projects/project1.png",
     tags: ["UX/UI"],
     demoUrl:
       "https://www.figma.com/proto/9nvkRwjkiqE0xZNzVc8pTJ/Book-Haven?node-id=163-1274&t=VLptzCFUj9hDP3e0-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=19%3A139",

@@ -11,7 +11,7 @@ export const HeroSection = () => {
         <div className=" flex-shrink-0 mb-8 md:mb-0 md:mr-12 flex justify-center w-full md:w-auto">
           <img
             className=" w-50 h-50 md:w-80 md:h-80 rounded-full opacity-0 animate-fade-in"
-            src="public/profile/photo.png"
+            src="/profile/photo.png"
             alt=""
           />
         </div>
