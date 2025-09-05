@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 const navItems = [
+  { name: "", href: "#" },
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
@@ -33,7 +34,7 @@ export const Navbar = () => {
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
+          href="#"
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground"> Thearoth </span>{" "}
@@ -42,11 +43,12 @@ export const Navbar = () => {
         </a>
         {/* desktop nav  */}
         <div className="hidden md:flex space-x-8 ">
+         
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="text-foreground/80 hover:text-primary text-xl transition-colors duration-300 border-b-2 border-transparent hover:border-primary pb-1 text-md "
             >
               {item.name}
             </a>
