@@ -13,7 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
@@ -93,13 +93,23 @@ export const ContactSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, translateX: "-100%" }}
+            whileInView={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-8"
+          >
             <h3 className="text-2xl font-semibold mb-6">
               {" "}
               Contact Information
             </h3>
             <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
+              <motion.div
+                initial={{ opacity: 0, translateX: "-100%" }}
+                whileInView={{ opacity: 1, translateX: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-start space-x-4"
+              >
                 <div className="p-3 rounded-full bg-primary/10 ">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
@@ -112,9 +122,14 @@ export const ContactSection = () => {
                     kunthearoth007@gmail.com{" "}
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start space-x-4">
+              <motion.div
+                initial={{ opacity: 0, translateX: "-100%" }}
+                whileInView={{ opacity: 1, translateX: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-start space-x-4"
+              >
                 <div className="p-3 rounded-full bg-primary/10 ">
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
@@ -127,9 +142,14 @@ export const ContactSection = () => {
                     (+855) : 71-451-8078
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start space-x-4">
+              <motion.div
+                initial={{ opacity: 0, translateX: "-100%" }}
+                whileInView={{ opacity: 1, translateX: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-start space-x-4"
+              >
                 <div className="p-3 rounded-full bg-primary/10 ">
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
@@ -142,7 +162,7 @@ export const ContactSection = () => {
                     Phnom Penh, Cambodia
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             <div className="pt-8 ">
@@ -171,9 +191,12 @@ export const ContactSection = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div
+          <motion.div
+            initial={{ opacity: 0, translateX: "100%" }}
+            whileInView={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 0.5 }}
             className="bg-card p-8 rounded-lg shadow-xs"
             onSubmit={handleSumbit}
           >
@@ -247,14 +270,16 @@ export const ContactSection = () => {
               {formStatus.message && (
                 <div
                   className={`form-status ${
-                    formStatus.success ? "text-green-500 border bg-green-500/10 ring-1 ring-green-500/20 rounded-sm px-4 py-2" : "text-red-500 border bg-red-500/10 ring-1 ring-red-500/20 rounded-sm px-4 py-2"
+                    formStatus.success
+                      ? "text-green-500 border bg-green-500/10 ring-1 ring-green-500/20 rounded-sm px-4 py-2"
+                      : "text-red-500 border bg-red-500/10 ring-1 ring-red-500/20 rounded-sm px-4 py-2"
                   }`}
                 >
                   {formStatus.message}
                 </div>
               )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

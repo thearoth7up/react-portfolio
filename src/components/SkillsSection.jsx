@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-
+import { motion } from "framer-motion";
 
 const skills = [
   { name: "HTML/CSS", level: 50, category: "Frontend" },
@@ -26,13 +26,18 @@ export const SkillsSection = () => {
           My <span className="text-primary"> Skills </span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
           {categories.map((category, key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-5 py-2 rounded-full transition-colors capitalize",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary/70 text-foreground hover:bg-secondary"
@@ -41,9 +46,14 @@ export const SkillsSection = () => {
               {category}
             </button>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="grid drid-col-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="grid drid-col-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {filteredSkills.map((skill, key) => (
             <div className="bg-card p-6 rounded-lg shadow-xs card-hover">
               <div className="text-left mb-4">
@@ -63,9 +73,8 @@ export const SkillsSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
-      
     </section>
   );
 };

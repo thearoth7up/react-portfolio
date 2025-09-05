@@ -1,5 +1,5 @@
 import { ArrowRight, ExternalLink, Github, GithubIcon } from "lucide-react";
-
+import { motion } from "framer-motion";
 const projects = [
   {
     id: 1,
@@ -19,8 +19,7 @@ const projects = [
     tags: ["UX/UI"],
     demoUrl:
       "https://www.figma.com/proto/9nvkRwjkiqE0xZNzVc8pTJ/Book-Haven?node-id=163-1274&t=VLptzCFUj9hDP3e0-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=19%3A139",
-    githubUrl:
-      "https://github.com/thearoth7up",
+    githubUrl: "https://github.com/thearoth7up",
   },
 ];
 
@@ -42,7 +41,12 @@ export const ProjectsSection = () => {
           learn more.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          initial={{ opacity: 0, translateY: "100%" }}
+          whileInView={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {projects.map((project) => (
             <div
               key={project.id}
@@ -90,9 +94,14 @@ export const ProjectsSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="text-center mt-12">
+        <motion.div
+          initial={{ opacity: 0, translateY: "100%" }}
+          whileInView={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mt-12"
+        >
           <a
             href="https://github.com/thearoth7up"
             className="cosmic-button w-fit flex items-center mx-auto gap-2 "
@@ -100,7 +109,7 @@ export const ProjectsSection = () => {
           >
             Check My Github <ArrowRight size={16} />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

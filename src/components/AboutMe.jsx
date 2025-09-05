@@ -1,11 +1,13 @@
 import { Briefcase, Code, User } from "lucide-react";
 import ChromaGrid from "./ChromaGrid";
 import DomeGallery from "./DomeGallery";
+import { motion } from "framer-motion";
 export const AboutMe = () => {
   const items = [
     {
       image: "/certificate/MIS Challenge Champion.png",
-      title: "Champion Team Member made a UX/UI Design for a web application for buying and selling books.",
+      title:
+        "Champion Team Member made a UX/UI Design for a web application for buying and selling books.",
       // subtitle: "Frontend Developer",
       borderColor: "#3B82F6",
       gradient: "linear-gradient(145deg, #3B82F6, #000)",
@@ -47,7 +49,12 @@ export const AboutMe = () => {
           About <span className="text-primary">Me</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, translateX: "-100%" }}
+            whileInView={{ opacity: 1, translateX: 0 }}
+            transition={{ duration: 1 }}
+            className="space-y-6"
+          >
             <h3 className="text-2xl font-semibold ">Who I Am</h3>
             <p className="text-muted-foreground">
               I'm a student studying at Royal University of Phnom Penh (RUPP).
@@ -73,10 +80,15 @@ export const AboutMe = () => {
                 Download CV
               </a>
             </div>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 gap-6 ">
-            <div className="gradient-border p-6 card-hover">
+            <motion.div
+              initial={{ opacity: 0, translateX: "100%" }}
+              whileInView={{ opacity: 1, translateX: 0 }}
+              transition={{ duration: 0.5 }}
+              className="gradient-border p-6 card-hover"
+            >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Code className="h-6 w-6 text-primary" />
@@ -90,8 +102,13 @@ export const AboutMe = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, translateX: "100%" }}
+              whileInView={{ opacity: 1, translateX: 0 }}
+              transition={{ duration: 0.5 }}
+              className="gradient-border p-6 card-hover"
+            >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <User className="h-6 w-6 text-primary" />
@@ -103,8 +120,13 @@ export const AboutMe = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, translateX: "100%" }}
+              whileInView={{ opacity: 1, translateX: 0 }}
+              transition={{ duration: 0.5 }}
+              className="gradient-border p-6 card-hover"
+            >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Briefcase className="h-6 w-6 text-primary" />
@@ -116,35 +138,46 @@ export const AboutMe = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      
       <div className="container mx-auto max-w-5xl mt-15">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           My <span className="text-primary">Certificate</span>
         </h2>
-        <ChromaGrid
-          items={items}
-          radius={700}
-          damping={1}
-          fadeOut={1}
-          ease="power3.out"
-          className="mt-20 absolute"
-        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ChromaGrid
+            items={items}
+            radius={700}
+            damping={1}
+            fadeOut={1}
+            ease="power3.out"
+            className="absolute"
+          />
+        </motion.div>
       </div>
 
       {/* my gallery */}
-      <div className="container mx-auto max-w-8xl mt-15">
+      <div className="container mx-auto max-w-8xl mt-15 hidden sm:block ">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           My <span className="text-primary">Gallery</span>
         </h2>
       </div>
-      <div style={{ width: "97.5vw", height: "70vh" }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        style={{ width: "97.5vw", height: "70vh" }}
+        className="hidden sm:block"
+      >
         <DomeGallery />
-      </div>
+      </motion.div>
     </section>
   );
 };
