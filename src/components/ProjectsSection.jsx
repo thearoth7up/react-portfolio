@@ -41,14 +41,12 @@ export const ProjectsSection = () => {
           learn more.
         </p>
 
-        <motion.div
-          initial={{ opacity: 0, translateY: "100%" }}
-          whileInView={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
               key={project.id}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
@@ -92,9 +90,9 @@ export const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, translateY: "100%" }}

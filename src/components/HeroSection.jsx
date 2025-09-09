@@ -10,6 +10,7 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 import LogoLoop from "./LogoLoop ";
+import Lanyard from "./Lanyard";
 
 const techLogo = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -132,6 +133,7 @@ export const HeroSection = () => {
           ariaLabel="Technology partners"
         />
       </div>
+      
     </section>
   );
 };

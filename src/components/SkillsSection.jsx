@@ -26,12 +26,7 @@ export const SkillsSection = () => {
           My <span className="text-primary"> Skills </span>
         </h2>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category, key) => (
             <button
               key={key}
@@ -46,16 +41,17 @@ export const SkillsSection = () => {
               {category}
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="grid drid-col-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid drid-col-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, key) => (
-            <div className="bg-card p-6 rounded-lg shadow-xs card-hover">
+            <motion.div
+              key={key}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+            >
               <div className="text-left mb-4">
                 <h3 className="font-semibold text-lg">{skill.name}</h3>
               </div>
@@ -71,9 +67,9 @@ export const SkillsSection = () => {
                   {skill.level}%
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

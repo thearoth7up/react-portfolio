@@ -147,11 +147,7 @@ export const AboutMe = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           My <span className="text-primary">Certificate</span>
         </h2>
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <ChromaGrid
             items={items}
             radius={700}
@@ -160,11 +156,11 @@ export const AboutMe = () => {
             ease="power3.out"
             className="absolute"
           />
-        </motion.div>
+        </div>
       </div>
 
       {/* my gallery */}
-      <div className="container mx-auto max-w-8xl mt-15 hidden sm:block ">
+      <div className="container mx-auto max-w-8xl mt-30 hidden sm:block ">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           My <span className="text-primary">Gallery</span>
         </h2>
@@ -174,7 +170,7 @@ export const AboutMe = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         style={{ width: "97.5vw", height: "70vh" }}
-        className="hidden sm:block"
+        className="relative min-h-screen items-center justify-center px-4 hidden sm:flex"
       >
         <DomeGallery />
       </motion.div>
